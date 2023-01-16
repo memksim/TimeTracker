@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "523124382670",
+    "project_id": "timetracker-51e36",
+    "storage_bucket": "timetracker-51e36.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:523124382670:android:87d3e4570464abdb2b299f",
+        "android_client_info": {
+          "package_name": "com.memksim.timetracker"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "523124382670-nve01f94g6l3ia1qm0urnl6q7h1f8cbc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyARe4E8mUBcxwU1EXKE494SEGICGfVd4FU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "523124382670-nve01f94g6l3ia1qm0urnl6q7h1f8cbc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -13,4 +13,4 @@ dependencyResolutionManagement {
     }
 }
 rootProject.name = "TimeTracker"
-include ':app'
+include(":app")
