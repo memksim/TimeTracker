@@ -29,18 +29,23 @@ object Dependencies {
             "androidx.navigation:navigation-safe-args-gradle-plugin:${Versions.Navigation.NAVIGATION_COMPONENT}"
     }
 
-    object Lifecycle {
-        const val VIEW_MODEL =
-            "androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.Lifecycle.LIFECYCLE}"
-        const val LIVE_DATA =
-            "androidx.lifecycle:lifecycle-livedata-ktx:${Versions.Lifecycle.LIFECYCLE}"
-        const val ANNOTATION_PROCESSOR =
-            "androidx.lifecycle:lifecycle-compiler:${Versions.Lifecycle.LIFECYCLE}"
+    object Moxy {
+        const val MOXY = "com.arello-mobile:moxy:${Versions.Moxy.MOXY}"
+        const val COMPILER = "com.arello-mobile:moxy-compiler:${Versions.Moxy.MOXY}"
+        const val ANDROID = "com.arello-mobile:moxy-android:${Versions.Moxy.MOXY}"
     }
 
     object Firebase {
         const val CORE = "com.google.firebase:firebase-core:${Versions.Firebase.CORE}"
         const val ANALYTICS =
             "com.google.firebase:firebase-analytics:${Versions.Firebase.ANALYTICS}"
+        const val FIRESTORE =
+            "com.google.firebase:firebase-firestore-ktx:${Versions.Firebase.FIRESTORE}"
+    }
+
+    object Room {
+        const val RUNTIME = "androidx.room:room-runtime:${Versions.Room.ROOM}"
+        const val COMPILER = "androidx.room:room-compiler:${Versions.Room.ROOM}"
+        const val KTX = "androidx.room:room-ktx:${Versions.Room.ROOM}"
     }
 }

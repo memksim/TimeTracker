@@ -4,6 +4,9 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/kmd02/Desktop/Pet/TimeTracker/app/src/main/res/layout/activity_main.xml" value="0.2359375" />
+        <entry key="..\:/Users/kmd02/Desktop/Pet/TimeTracker/app/src/main/res/layout/dropdown_item.xml" value="0.24895833333333334" />
+        <entry key="..\:/Users/kmd02/Desktop/Pet/TimeTracker/app/src/main/res/layout/dropdown_menu.xml" value="0.25" />
+        <entry key="..\:/Users/kmd02/Desktop/Pet/TimeTracker/app/src/main/res/layout/fragment_time_tracker.xml" value="0.225" />
       </map>
     </option>
   </component>

@@ -1,3 +1,4 @@
+
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
@@ -7,12 +8,12 @@ plugins {
 }
 
 android {
-    compileSdk = 32
+    compileSdk = 33
 
     defaultConfig {
         applicationId = "com.memksim.timetracker"
         minSdk = 22
-        targetSdk = 32
+        targetSdk = 33
         versionCode = 1
         versionName = "1.0"
 
@@ -41,19 +42,25 @@ dependencies {
     //Firebase
     implementation(Dependencies.Firebase.CORE)
     implementation(Dependencies.Firebase.ANALYTICS)
+    implementation(Dependencies.Firebase.FIRESTORE)
 
     //Ui
     implementation(Dependencies.Ui.MATERIAL)
     implementation(Dependencies.Ui.CONSTRAINT_LAYOUT)
 
+    //Room
+    implementation(Dependencies.Room.RUNTIME)
+    kapt(Dependencies.Room.COMPILER)
+    implementation(Dependencies.Room.KTX)
+
     //Di
     kapt(Dependencies.Di.DAGGER_COMPILER)
     implementation(Dependencies.Di.DAGGER)
 
-    //Lifecycle
-    implementation(Dependencies.Lifecycle.VIEW_MODEL)
-    implementation(Dependencies.Lifecycle.LIVE_DATA)
-    kapt(Dependencies.Lifecycle.ANNOTATION_PROCESSOR)
+    //Moxy
+    implementation(Dependencies.Moxy.MOXY)
+    kapt(Dependencies.Moxy.COMPILER)
+    implementation(Dependencies.Moxy.ANDROID)
 
     //Navigation
     implementation(Dependencies.Navigation.NAVIGATION_UI)

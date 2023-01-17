@@ -22,12 +22,17 @@ object Versions {
         const val NAVIGATION_COMPONENT = "2.5.3"
     }
 
-    object Lifecycle {
-        const val LIFECYCLE = "2.5.1"
+    object Moxy {
+        const val MOXY = "1.5.5"
     }
 
     object Firebase {
         const val CORE = "21.1.1"
         const val ANALYTICS = "21.2.0"
+        const val FIRESTORE = "24.4.1"
+    }
+
+    object Room {
+        const val ROOM = "2.5.0"
     }
 }
