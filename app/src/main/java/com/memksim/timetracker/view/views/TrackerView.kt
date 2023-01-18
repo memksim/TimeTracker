@@ -5,11 +5,10 @@ import com.arellomobile.mvp.MvpView
 interface TrackerView: MvpView {
     fun pauseTracking()
     fun startTracking()
-    fun stopTracking()
+    fun stopTracking(info: String)
     fun resetTracking()
-    fun setHours(time: Int)
-    fun setMinutes(time: Int)
-    fun setSeconds(time: Int)
-    fun setTotalTimeTitle(time: Int)
-    fun setProjectTimeTitle(time: Int)
+    fun setHours(time: String)
+    fun setMinutes(time: String)
+    fun setTotalTimeTitle(time: String)
+    fun setProjectTimeTitle(time: String)
 }

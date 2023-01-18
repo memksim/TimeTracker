@@ -21,11 +21,11 @@
         tools:text=":04"
         style="@style/main_time_tracker_style"/>
 
-    <TextView
+    <!--<TextView
         android:id="@+id/seconds_time_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         tools:text=":56"
-        style="@style/secondary_time_tracker_style"/>
+        style="@style/secondary_time_tracker_style"/>-->
 
 </LinearLayout>

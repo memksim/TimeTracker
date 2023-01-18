@@ -2,6 +2,7 @@ package com.memksim.timetracker.view.fragments
 
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import com.arellomobile.mvp.presenter.InjectPresenter
 import com.arellomobile.mvp.presenter.ProvidePresenter
 import com.memksim.timetracker.R
@@ -26,7 +27,10 @@ class TimeTrackerFragment : BaseFragment<FragmentTimeTrackerBinding>(
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.actionButtons.playPauseTimer.setOnClickListener {
-            
+            trackerPresenter.startTimer()
+        }
+        binding.actionButtons.stopTimer.setOnClickListener {
+            trackerPresenter.stopTimer()
         }
     }
 
@@ -46,32 +50,28 @@ class TimeTrackerFragment : BaseFragment<FragmentTimeTrackerBinding>(
             )
     }
 
-    override fun stopTracking() {
-        //TODO("Not yet implemented")
+    override fun stopTracking(info: String) {
+        Toast.makeText(requireContext(), info, Toast.LENGTH_SHORT).show()
     }
 
     override fun resetTracking() {
         //TODO("Not yet implemented")
     }
 
-    override fun setHours(time: Int) {
+    override fun setHours(time: String) {
         binding.timeTracker.hoursTimeTv.text = time.toString()
     }
 
-    override fun setMinutes(time: Int) {
+    override fun setMinutes(time: String) {
         binding.timeTracker.minutesTimeTv.text = ":${time}"
     }
 
-    override fun setSeconds(time: Int) {
-        binding.timeTracker.secondsTimeTv.text = ":${time}"
+    override fun setTotalTimeTitle(time: String) {
+        binding.totalProjectTime.text = getString(R.string.total_time_tracked_on_project) + time
     }
 
-    override fun setTotalTimeTitle(time: Int) {
-        binding.totalProjectTime.text = getString(R.string.total_time_tracked_on_project) + time.toString()
-    }
-
-    override fun setProjectTimeTitle(time: Int) {
-        binding.totalTimeToday.text = getString(R.string.total_time_tracked_today) + time.toString()
+    override fun setProjectTimeTitle(time: String) {
+        binding.totalTimeToday.text = getString(R.string.total_time_tracked_today) + time
     }
 
 }

@@ -55,6 +55,7 @@ dependencies {
     implementation(Dependencies.Room.RUNTIME)
     kapt(Dependencies.Room.COMPILER)
     implementation(Dependencies.Room.KTX)
+    implementation(Dependencies.Room.RX_JAVA)
 
     //RxJava
     implementation(Dependencies.RxJava.RX_JAVA)
@@ -68,7 +69,7 @@ dependencies {
 
     //Moxy
     implementation(Dependencies.Moxy.MOXY_X)
-    annotationProcessor(Dependencies.Moxy.COMPILER)
+    kapt(Dependencies.Moxy.COMPILER)
     implementation(Dependencies.Moxy.ANDROIDX)
 
     //Navigation
