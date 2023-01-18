@@ -3,13 +3,13 @@ package com.memksim.timetracker.view.fragments
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
+import androidx.core.content.ContextCompat
+import androidx.core.content.res.ResourcesCompat
 import com.arellomobile.mvp.presenter.InjectPresenter
 import com.arellomobile.mvp.presenter.ProvidePresenter
 import com.memksim.timetracker.R
 import com.memksim.timetracker.base.BaseFragment
 import com.memksim.timetracker.databinding.FragmentTimeTrackerBinding
-import com.memksim.timetracker.model.repository.ProjectDatabaseRepository
-import com.memksim.timetracker.view.extensions.setIcon
 import com.memksim.timetracker.view.presenters.TrackerPresenter
 import com.memksim.timetracker.view.views.TrackerView
 
@@ -26,28 +26,29 @@ class TimeTrackerFragment : BaseFragment<FragmentTimeTrackerBinding>(
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.actionButtons.playPauseTimer.setOnClickListener {
-            trackerPresenter.startTimer()
-        }
-        binding.actionButtons.stopTimer.setOnClickListener {
-            trackerPresenter.stopTimer()
+        with(binding) {
+            actionButtons.run {
+                playPauseTimer.setOnClickListener {
+                    trackerPresenter.startPauseTimer()
+                }
+
+                stopTimer.setOnClickListener {
+                    trackerPresenter.stopTimer()
+                }
+
+                resetTimer.setOnClickListener {
+                    trackerPresenter.resetTimer()
+                }
+            }
         }
     }
 
     override fun pauseTracking() {
-        binding.actionButtons.playPauseTimer
-            .setIcon(
-                resources = resources,
-                iconId = R.drawable.ic_baseline_pause_circle_filled_24
-            )
+        startPauseTracking(isPaused = true)
     }
 
     override fun startTracking() {
-        binding.actionButtons.playPauseTimer
-            .setIcon(
-                resources = resources,
-                iconId = R.drawable.ic_baseline_play_circle_filled_24
-            )
+        startPauseTracking(isPaused = false)
     }
 
     override fun stopTracking(info: String) {
@@ -59,7 +60,7 @@ class TimeTrackerFragment : BaseFragment<FragmentTimeTrackerBinding>(
     }
 
     override fun setHours(time: String) {
-        binding.timeTracker.hoursTimeTv.text = time.toString()
+        binding.timeTracker.hoursTimeTv.text = time
     }
 
     override fun setMinutes(time: String) {
@@ -67,11 +68,53 @@ class TimeTrackerFragment : BaseFragment<FragmentTimeTrackerBinding>(
     }
 
     override fun setTotalTimeTitle(time: String) {
-        binding.totalProjectTime.text = getString(R.string.total_time_tracked_on_project) + time
+        binding.totalTimeToday.text = getString(R.string.total_time_tracked_today) + time
     }
 
     override fun setProjectTimeTitle(time: String) {
-        binding.totalTimeToday.text = getString(R.string.total_time_tracked_today) + time
+        binding.totalProjectTime.text = getString(R.string.total_time_tracked_on_project) + time
+    }
+
+    private fun startPauseTracking(isPaused: Boolean) {
+        with(binding) {
+            actionButtons.playPauseTimer.background = ResourcesCompat
+                .getDrawable(
+                    resources,
+                    if (isPaused) {
+                        R.drawable.play_button_background
+                    } else {
+                        R.drawable.pause_button_background
+                    },
+                    null
+                )
+            timeTracker.run {
+                hoursTimeTv.setTextColor(
+                    ContextCompat.getColor(
+                        requireContext(), if (isPaused) {
+                            R.color.grey
+                        } else {
+                            R.color.black
+                        }
+                    )
+                )
+                minutesTimeTv.setTextColor(
+                    ContextCompat.getColor(
+                        requireContext(), if (isPaused) {
+                            R.color.grey
+                        } else {
+                            R.color.black
+                        }
+                    )
+                )
+            }
+            startPauseTitle.text = getString(
+                if (isPaused) {
+                    R.string.paused
+                } else {
+                    R.string.work_time
+                }
+            )
+        }
     }
 
 }

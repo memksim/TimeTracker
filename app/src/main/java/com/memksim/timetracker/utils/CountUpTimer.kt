@@ -1,4 +1,4 @@
-package com.memksim.timetracker.base
+package com.memksim.timetracker.utils
 
 import android.os.CountDownTimer
 
@@ -16,6 +16,6 @@ class CountUpTimer(
     }
 
     override fun onFinish() {
-        finishListener("Достигнут максимальный лимит времени за 1 сессию!")
+        finishListener("Finished!")
     }
 }
