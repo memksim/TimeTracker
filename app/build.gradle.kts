@@ -8,7 +8,7 @@ plugins {
 }
 
 android {
-    compileSdk = 32
+    compileSdk = 33
 
     defaultConfig {
         applicationId = "com.memksim.timetracker"
@@ -33,6 +33,9 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+    buildFeatures {
+        viewBinding = true
+    }
 }
 
 dependencies {
@@ -53,14 +56,20 @@ dependencies {
     kapt(Dependencies.Room.COMPILER)
     implementation(Dependencies.Room.KTX)
 
+    //RxJava
+    implementation(Dependencies.RxJava.RX_JAVA)
+
+    //ViewBinding property delegate by AndroidBroadcast
+    implementation(Dependencies.VIEW_BINDING_PROPERTY_DELEGATE)
+
     //Di
     kapt(Dependencies.Di.DAGGER_COMPILER)
     implementation(Dependencies.Di.DAGGER)
 
     //Moxy
-    implementation(Dependencies.Moxy.MOXY)
-    kapt(Dependencies.Moxy.COMPILER)
-    implementation(Dependencies.Moxy.ANDROID)
+    implementation(Dependencies.Moxy.MOXY_X)
+    annotationProcessor(Dependencies.Moxy.COMPILER)
+    implementation(Dependencies.Moxy.ANDROIDX)
 
     //Navigation
     implementation(Dependencies.Navigation.NAVIGATION_UI)

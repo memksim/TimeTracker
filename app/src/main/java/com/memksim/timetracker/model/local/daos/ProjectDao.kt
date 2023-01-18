@@ -2,22 +2,23 @@ package com.memksim.timetracker.model.local.daos
 
 import androidx.room.*
 import com.memksim.timetracker.model.local.entity.ProjectTable
+import io.reactivex.rxjava3.core.Single
 
 @Dao
 interface ProjectDao {
 
     @Query("select * from projects where _id = :projectId")
-    suspend fun getProjectById(projectId: Int): ProjectTable
+    fun getProjectById(projectId: Int): Single<ProjectTable>
 
     @Query("select * from projects")
-    suspend fun getProjects(): List<ProjectTable>
+    fun getProjects(): Single<List<ProjectTable>>
 
     @Insert
-    suspend fun insertProject(project: ProjectTable)
+    fun insertProject(project: ProjectTable)
 
     @Update
-    suspend fun updateProject(project: ProjectTable)
+    fun updateProject(project: ProjectTable)
 
     @Delete
-    suspend fun deleteProject(project: ProjectTable)
+    fun deleteProject(project: ProjectTable)
 }

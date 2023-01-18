@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">TimeTracker</string>
-    <string name="total_time_tracked_today">total time tracked today:</string>
+    <string name="total_time_tracked_today">total time tracked today: </string>
+    <string name="total_time_tracked_on_project">total time tracked on this project: </string>
 </resources>

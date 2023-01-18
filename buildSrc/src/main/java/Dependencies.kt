@@ -2,11 +2,17 @@ object Dependencies {
     const val CORE_KTX = "androidx.core:core-ktx:${Versions.CORE_KTX}"
     const val APPCOMPAT = "androidx.appcompat:appcompat:${Versions.APPCOMPAT}"
     const val GOOGLE_SERVICES = "com.google.gms:google-services:${Versions.GOOGLE_SERVICES}"
+    const val VIEW_BINDING_PROPERTY_DELEGATE =
+        "com.github.kirich1409:viewbindingpropertydelegate-noreflection:${Versions.VIEW_BINDING_PROPERTY_DELEGATE}"
 
     object Ui {
         const val MATERIAL = "com.google.android.material:material:${Versions.Ui.MATERIAL}"
         const val CONSTRAINT_LAYOUT =
             "androidx.constraintlayout:constraintlayout:${Versions.Ui.CONSTRAINT_LAYOUT}"
+    }
+
+    object RxJava {
+        const val RX_JAVA = "io.reactivex.rxjava3:rxjava:${Versions.RxJava.RX_JAVA}"
     }
 
     object Test {
@@ -30,9 +36,10 @@ object Dependencies {
     }
 
     object Moxy {
-        const val MOXY = "com.arello-mobile:moxy:${Versions.Moxy.MOXY}"
-        const val COMPILER = "com.arello-mobile:moxy-compiler:${Versions.Moxy.MOXY}"
-        const val ANDROID = "com.arello-mobile:moxy-android:${Versions.Moxy.MOXY}"
+        const val MOXY_X = "tech.schoolhelper:moxy-x:${Versions.Moxy.MOXY_X}"
+        const val COMPILER = "tech.schoolhelper:moxy-x-compiler:${Versions.Moxy.MOXY_X}"
+        const val ANDROIDX = "tech.schoolhelper:moxy-x-androidx:${Versions.Moxy.MOXY_X}"
+        //const val APP_COMPAT = "tech.schoolhelper:moxy-x-androidx:${Versions.Moxy.ANDROIDX}"
     }
 
     object Firebase {

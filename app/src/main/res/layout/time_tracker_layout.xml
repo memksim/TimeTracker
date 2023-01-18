@@ -8,10 +8,17 @@
     >
 
     <TextView
-        android:id="@+id/main_time_tv"
+        android:id="@+id/hours_time_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        tools:text="37:04"
+        tools:text="37"
+        style="@style/main_time_tracker_style"/>
+
+    <TextView
+        android:id="@+id/minutes_time_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text=":04"
         style="@style/main_time_tracker_style"/>
 
     <TextView
