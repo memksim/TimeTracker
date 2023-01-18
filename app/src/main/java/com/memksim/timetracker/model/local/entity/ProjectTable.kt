@@ -1,4 +1,4 @@
-package com.memksim.timetracker.model.entity
+package com.memksim.timetracker.model.local.entity
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity

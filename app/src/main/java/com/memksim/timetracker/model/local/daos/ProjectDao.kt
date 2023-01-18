@@ -1,7 +1,7 @@
-package com.memksim.timetracker.model.daos
+package com.memksim.timetracker.model.local.daos
 
 import androidx.room.*
-import com.memksim.timetracker.model.entity.ProjectTable
+import com.memksim.timetracker.model.local.entity.ProjectTable
 
 @Dao
 interface ProjectDao {
