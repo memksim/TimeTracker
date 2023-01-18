@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="dropdown_menu_width">256dp</dimen>
+    <dimen name="small_image_button_size">56dp</dimen>
+    <dimen name="image_button_size">96dp</dimen>
+
+    <dimen name="text_size_64">64sp</dimen>
+    <dimen name="text_size_16">16sp</dimen>
+
+    <dimen name="spacing_10">10dp</dimen>
+    <dimen name="spacing_24">24dp</dimen>
+    <dimen name="spacing_32">32dp</dimen>
+    <dimen name="spacing_64">64dp</dimen>
+</resources>

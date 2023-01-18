@@ -2,8 +2,8 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools">
 
 
     <androidx.appcompat.widget.Toolbar
@@ -14,9 +14,66 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:navigationIcon="@drawable/ic_baseline_menu_24"
-        app:title="@string/app_name"/>
+        app:title="@string/app_name" />
 
+    <include
+        android:id="@+id/dropdown_menu"
+        layout="@layout/dropdown_menu"
+        android:layout_height="wrap_content"
+        android:layout_width="@dimen/dropdown_menu_width"
+        app:layout_constraintTop_toBottomOf="@id/appBar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="@dimen/spacing_10"/>
 
+    <TextView
+        android:id="@+id/total_project_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="total time tracked on this project: 24h 12m"
+        app:layout_constraintTop_toBottomOf="@id/dropdown_menu"
+        app:layout_constraintStart_toStartOf="@id/time_tracker"
+        app:layout_constraintEnd_toEndOf="@id/time_tracker"
+        android:layout_marginTop="@dimen/spacing_10"/>
 
+    <include
+        android:id="@+id/time_tracker"
+        layout="@layout/time_tracker_layout"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/total_project_time"
+        android:layout_marginTop="@dimen/spacing_24"/>
+
+    <TextView
+        android:id="@+id/total_time_today"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="total time tracked today: 11h 12m"
+        app:layout_constraintTop_toBottomOf="@id/time_tracker"
+        app:layout_constraintStart_toStartOf="@id/time_tracker"
+        app:layout_constraintEnd_toEndOf="@id/time_tracker"/>
+
+    <include
+        android:id="@+id/action_buttons"
+        layout="@layout/actions_buttons_layout"
+        app:layout_constraintTop_toBottomOf="@id/total_time_today"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/spacing_64"/>
+
+    <TextView
+        android:id="@+id/date_time_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="Tue, Jan 18"
+        style="@style/date_time_text_style"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="@dimen/spacing_32"
+        android:layout_marginStart="@dimen/spacing_24"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

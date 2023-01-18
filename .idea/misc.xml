@@ -3,10 +3,14 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/kmd02/Desktop/Pet/TimeTracker/app/src/main/res/layout/actions_buttons_layout.xml" value="0.20427350427350427" />
         <entry key="..\:/Users/kmd02/Desktop/Pet/TimeTracker/app/src/main/res/layout/activity_main.xml" value="0.2359375" />
         <entry key="..\:/Users/kmd02/Desktop/Pet/TimeTracker/app/src/main/res/layout/dropdown_item.xml" value="0.24895833333333334" />
         <entry key="..\:/Users/kmd02/Desktop/Pet/TimeTracker/app/src/main/res/layout/dropdown_menu.xml" value="0.25" />
         <entry key="..\:/Users/kmd02/Desktop/Pet/TimeTracker/app/src/main/res/layout/fragment_time_tracker.xml" value="0.225" />
+        <entry key="..\:/Users/kmd02/Desktop/Pet/TimeTracker/app/src/main/res/layout/time_tracker_view.xml" value="0.22685185185185186" />
+        <entry key="..\:/Users/kmd02/Desktop/Pet/TimeTracker/app/src/main/res/layout/tracker.xml" value="0.24895833333333334" />
+        <entry key="..\:/Users/kmd02/Desktop/Pet/TimeTracker/app/src/main/res/layout/tracker_view.xml" value="0.25" />
       </map>
     </option>
   </component>

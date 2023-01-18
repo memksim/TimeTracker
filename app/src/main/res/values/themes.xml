@@ -13,4 +13,16 @@
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
     </style>
+    <style name="main_time_tracker_style" parent="Widget.MaterialComponents.TextView">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">@dimen/text_size_64</item>
+    </style>
+    <style name="secondary_time_tracker_style" parent="Widget.MaterialComponents.TextView">
+        <item name="android:textColor">@color/grey</item>
+        <item name="android:textSize">@dimen/text_size_64</item>
+    </style>
+    <style name="date_time_text_style" parent="Widget.MaterialComponents.TextView">
+        <item name="android:textColor">@color/grey</item>
+        <item name="android:textSize">@dimen/text_size_16</item>
+    </style>
 </resources>
