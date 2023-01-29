@@ -24,6 +24,9 @@ object Dependencies {
     object Di {
         const val DAGGER_COMPILER = "com.google.dagger:dagger-compiler:${Versions.Di.DAGGER2}"
         const val DAGGER = "com.google.dagger:dagger:${Versions.Di.DAGGER2}"
+
+        const val KOIN_ANDROID = "io.insert-koin:koin-android:${Versions.Di.KOIN_ANDROID}"
+        const val KOIN_CORE = "io.insert-koin:koin-core:$${Versions.Di.KOIN_CORE}"
     }
 
     object Navigation {

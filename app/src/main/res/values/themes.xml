@@ -16,10 +16,25 @@
     <style name="main_time_tracker_style" parent="Widget.MaterialComponents.TextView">
         <item name="android:textColor">@color/grey</item>
         <item name="android:textStyle">bold</item>
-        <item name="android:textSize">@dimen/text_size_64</item>
+        <item name="android:textSize">@dimen/text_size_48</item>
     </style>
     <style name="date_time_text_style" parent="Widget.MaterialComponents.TextView">
         <item name="android:textColor">@color/grey</item>
         <item name="android:textSize">@dimen/text_size_16</item>
+    </style>
+    <style name="basic_number_button_style" parent="Widget.Material3.Button">
+        <item name="android:textSize">@dimen/text_size_24</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:paddingTop">@dimen/spacing_27</item>
+        <item name="android:paddingBottom">@dimen/spacing_27</item>
+        <item name="cornerRadius">@dimen/corner_radius_48</item>
+        <item name="backgroundTint">@color/light_grey</item>
+    </style>
+    <style name="selected_time_title" parent="Widget.MaterialComponents.TextView">
+        <item name="android:textSize">@dimen/text_size_48</item>
+    </style>
+    <style name="selected_time_abbreviated_title" parent="Widget.MaterialComponents.TextView">
+        <item name="android:textSize">@dimen/text_size_24</item>
+        <item name="android:textStyle">bold</item>
     </style>
 </resources>

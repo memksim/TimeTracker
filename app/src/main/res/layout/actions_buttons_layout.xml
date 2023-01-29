@@ -10,12 +10,23 @@
         android:layout_height="@dimen/small_image_button_size"
         android:background="@drawable/reset_button_background" />
 
-    <ImageView
-        android:id="@+id/play_pause_timer"
-        android:layout_width="@dimen/image_button_size"
-        android:layout_height="@dimen/image_button_size"
-        android:layout_marginStart="@dimen/spacing_24"
-        android:background="@drawable/play_button_background" />
+
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:id="@+id/play_pause_timer"
+            android:layout_width="@dimen/image_button_size"
+            android:layout_height="@dimen/image_button_size"
+            android:layout_marginStart="@dimen/spacing_24"
+            android:background="@drawable/play_button_background" />
+        <ImageView
+            android:id="@+id/play_pause_timer_inactivate"
+            android:layout_width="@dimen/image_button_size"
+            android:layout_height="@dimen/image_button_size"
+            android:layout_marginStart="@dimen/spacing_24"
+            android:background="@drawable/ic_baseline_play_circle_outline_inactive" />
+    </FrameLayout>
 
     <ImageView
         android:id="@+id/stop_timer"

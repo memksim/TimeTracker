@@ -1,10 +1,9 @@
 package com.memksim.timetracker.base
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.arellomobile.mvp.MvpAppCompatActivity
 import com.memksim.timetracker.R
-import com.memksim.timetracker.view.fragments.TimeTrackerFragment
+import com.memksim.timetracker.view.fragments.TimeTimerFragment
 
 class MainActivity : MvpAppCompatActivity(){
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -13,7 +12,7 @@ class MainActivity : MvpAppCompatActivity(){
 
         if(savedInstanceState == null){
 
-            supportFragmentManager.beginTransaction().add(R.id.fragment_container_view, TimeTrackerFragment()).commit()
+            supportFragmentManager.beginTransaction().add(R.id.fragment_container_view, TimeTimerFragment()).commit()
         }
     }
 }

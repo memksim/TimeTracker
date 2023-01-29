@@ -17,6 +17,8 @@ object Versions {
 
     object Di {
         const val DAGGER2 = "2.44.2"
+        const val KOIN_CORE = "3.3.2"
+        const val KOIN_ANDROID = "3.3.2"
     }
 
     object RxJava {

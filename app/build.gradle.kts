@@ -66,6 +66,8 @@ dependencies {
     //Di
     kapt(Dependencies.Di.DAGGER_COMPILER)
     implementation(Dependencies.Di.DAGGER)
+    implementation(Dependencies.Di.KOIN_CORE)
+    implementation(Dependencies.Di.KOIN_ANDROID)
 
     //Moxy
     implementation(Dependencies.Moxy.MOXY_X)

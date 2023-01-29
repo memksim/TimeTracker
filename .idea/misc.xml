@@ -5,17 +5,24 @@
       <map>
         <entry key="..\:/Users/kmd02/Desktop/Pet/TimeTracker/app/src/main/res/drawable/ic_baseline_pause_circle_filled_24.xml" value="0.1455" />
         <entry key="..\:/Users/kmd02/Desktop/Pet/TimeTracker/app/src/main/res/drawable/ic_baseline_play_circle_filled_24.xml" value="0.1455" />
+        <entry key="..\:/Users/kmd02/Desktop/Pet/TimeTracker/app/src/main/res/drawable/ic_baseline_play_circle_outline_inactive.xml" value="0.1255" />
         <entry key="..\:/Users/kmd02/Desktop/Pet/TimeTracker/app/src/main/res/drawable/ic_baseline_replay_circle_filled_24.xml" value="0.1455" />
         <entry key="..\:/Users/kmd02/Desktop/Pet/TimeTracker/app/src/main/res/drawable/ic_baseline_stop_circle_24.xml" value="0.1455" />
+        <entry key="..\:/Users/kmd02/Desktop/Pet/TimeTracker/app/src/main/res/drawable/inactive_play_button_background.xml" value="0.1255" />
         <entry key="..\:/Users/kmd02/Desktop/Pet/TimeTracker/app/src/main/res/drawable/pause_button_background.xml" value="0.1235" />
         <entry key="..\:/Users/kmd02/Desktop/Pet/TimeTracker/app/src/main/res/drawable/play_button_background.xml" value="0.1455" />
         <entry key="..\:/Users/kmd02/Desktop/Pet/TimeTracker/app/src/main/res/drawable/reset_button_background.xml" value="0.1455" />
+        <entry key="..\:/Users/kmd02/Desktop/Pet/TimeTracker/app/src/main/res/drawable/round_button_background.xml" value="0.1255" />
         <entry key="..\:/Users/kmd02/Desktop/Pet/TimeTracker/app/src/main/res/drawable/stop_button_background.xml" value="0.1455" />
         <entry key="..\:/Users/kmd02/Desktop/Pet/TimeTracker/app/src/main/res/layout/actions_buttons_layout.xml" value="0.20427350427350427" />
         <entry key="..\:/Users/kmd02/Desktop/Pet/TimeTracker/app/src/main/res/layout/activity_main.xml" value="0.2359375" />
         <entry key="..\:/Users/kmd02/Desktop/Pet/TimeTracker/app/src/main/res/layout/dropdown_item.xml" value="0.24895833333333334" />
         <entry key="..\:/Users/kmd02/Desktop/Pet/TimeTracker/app/src/main/res/layout/dropdown_menu.xml" value="0.25" />
+        <entry key="..\:/Users/kmd02/Desktop/Pet/TimeTracker/app/src/main/res/layout/fragment_select_time.xml" value="0.20512820512820512" />
+        <entry key="..\:/Users/kmd02/Desktop/Pet/TimeTracker/app/src/main/res/layout/fragment_set_time.xml" value="0.20512820512820512" />
         <entry key="..\:/Users/kmd02/Desktop/Pet/TimeTracker/app/src/main/res/layout/fragment_time_tracker.xml" value="0.225" />
+        <entry key="..\:/Users/kmd02/Desktop/Pet/TimeTracker/app/src/main/res/layout/numbers_layout.xml" value="0.20512820512820512" />
+        <entry key="..\:/Users/kmd02/Desktop/Pet/TimeTracker/app/src/main/res/layout/selected_time_layout.xml" value="0.20427350427350427" />
         <entry key="..\:/Users/kmd02/Desktop/Pet/TimeTracker/app/src/main/res/layout/time_tracker_layout.xml" value="0.20253164556962025" />
         <entry key="..\:/Users/kmd02/Desktop/Pet/TimeTracker/app/src/main/res/layout/time_tracker_view.xml" value="0.22685185185185186" />
         <entry key="..\:/Users/kmd02/Desktop/Pet/TimeTracker/app/src/main/res/layout/tracker.xml" value="0.24895833333333334" />

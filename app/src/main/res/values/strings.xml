@@ -5,4 +5,18 @@
     <string name="start_work">Start work</string>
     <string name="paused">Paused</string>
     <string name="work_time">Working Time!</string>
+    <string name="one">1</string>
+    <string name="two">2</string>
+    <string name="three">3</string>
+    <string name="four">4</string>
+    <string name="five">5</string>
+    <string name="six">6</string>
+    <string name="seven">7</string>
+    <string name="eight">8</string>
+    <string name="nine">9</string>
+    <string name="zero_zero">00</string>
+    <string name="zero">0</string>
+    <string name="hour_abbreviated_title">ч.</string>
+    <string name="minutes_abbreviated_title">м.</string>
+    <string name="seconds_abbreviated_title">с.</string>
 </resources>

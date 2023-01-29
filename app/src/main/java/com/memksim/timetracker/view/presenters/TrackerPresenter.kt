@@ -1,83 +1,112 @@
 package com.memksim.timetracker.view.presenters
 
+import android.os.CountDownTimer
+import android.util.Log
 import com.arellomobile.mvp.InjectViewState
 import com.arellomobile.mvp.MvpPresenter
-import com.memksim.timetracker.utils.CountUpTimer
-import com.memksim.timetracker.view.views.TrackerView
+import com.memksim.timetracker.view.views.TimerView
+import java.util.*
 
 @InjectViewState
-class TrackerPresenter : MvpPresenter<TrackerView>() {
+class TrackerPresenter : MvpPresenter<TimerView>() {
 
-    private var lastTime: Long = 0
-    private var isPaused: Boolean = true
+    private var isTimerRunning = false
+    private var timer: CountDownTimer? = null
 
-    private val timer = CountUpTimer(
-        this::tick,
-        this::tickStops
-    )
-
-    fun startPauseTimer() {
-        if (isPaused) {
-            timer.start()
-            viewState.startTracking()
-            isPaused = false
-        } else {
-            timer.cancel()
-            viewState.pauseTracking()
-            isPaused = true
+    var timeLeftInMillis: Long = 0
+    set(value) {
+        field = value
+        if(value != 0L){
+            viewState.setStartButtonActive()
+        }else{
+            viewState.setStartButtonInactive()
         }
     }
+    private var memorableTime = timeLeftInMillis
+    private val TICK_INTERVAL = 1_000L // 1 second
 
-    fun stopTimer() {
-        timer.cancel()
-        isPaused = true
-        viewState.pauseTracking()
-        viewState.setMinutes("00")
-        viewState.setHours("00")
-        viewState.setTotalTimeTitle("${getHours()}:${getMinutes()}")
-        lastTime = 0
+    fun initTimer(time: Long){
+        timeLeftInMillis = time
+        memorableTime = timeLeftInMillis
+        updateTimer(timeLeftInMillis)
+    }
+
+    fun startPauseTimer() {
+        if (isTimerRunning) {
+            pauseTimer()
+        } else {
+            startTimer(fromMemory = false)
+        }
     }
 
     fun resetTimer() {
-        timer.cancel()
-        viewState.setMinutes("00")
-        viewState.setHours("00")
-        lastTime = 0
-        timer.start()
+        timeLeftInMillis = 0
+        updateTimer(memorableTime)
+        viewState.resetTimer()
+        stopTimer()
+        startTimer(fromMemory = true)
     }
 
-    private fun tick(time: Long) {
-        lastTime = time
-        viewState.setMinutes(getMinutes())
-        viewState.setHours(getHours())
+    fun stopTimer() {
+        timeLeftInMillis = 0
+        updateTimer(timeLeftInMillis)
+        viewState.stopTimer()
+        timer?.cancel()
+        isTimerRunning = false
     }
 
-    private fun getMinutes(): String {
-        //todo оригинальная версия
-        val minutes = (lastTime / (1000 * 60)) % 60
-        //тут считает секунды вместо минуток, для простоты тестирования
-        //val minutes = (lastTime / (1000)) % 60
-        return if (minutes < 10) {
-            "0$minutes"
-        } else {
-            minutes.toString()
+    private fun pauseTimer() {
+        timer?.cancel()
+        isTimerRunning = false
+        viewState.pauseTimer(isTimerRunning = isTimerRunning)
+    }
+
+    private fun startTimer(fromMemory: Boolean) {
+        timer = if(fromMemory.not()){
+            object : CountDownTimer(
+                timeLeftInMillis,
+                TICK_INTERVAL
+            ) {
+                override fun onTick(millisUntilFinished: Long) {
+                    timeLeftInMillis = millisUntilFinished
+                    updateTimer(timeLeftInMillis)
+                }
+
+                override fun onFinish() {
+                    isTimerRunning = false
+                    viewState.stopTimer()
+                }
+            }.start()
+        }else{
+            object : CountDownTimer(
+                memorableTime,
+                TICK_INTERVAL
+            ) {
+                override fun onTick(millisUntilFinished: Long) {
+                    timeLeftInMillis = millisUntilFinished
+                    updateTimer(timeLeftInMillis)
+                }
+
+                override fun onFinish() {
+                    isTimerRunning = false
+                    viewState.stopTimer()
+                }
+            }.start()
         }
+
+        isTimerRunning = true
+        viewState.startTimer(isTimerRunning = isTimerRunning)
     }
 
-    private fun getHours(): String {
-        //todo оригинальная версия
-        val hours = (lastTime / (1000 * 60 * 60)) % 24
-        //тут считает минутки вместо часов, для простоты тестирования
-        //val hours = (lastTime / (1000 * 60)) % 60
-        return if (hours < 10) {
-            "0$hours"
-        } else {
-            hours.toString()
-        }
-    }
+    private fun updateTimer(time: Long){
+        val hours = (time / 61_440_000).toInt()
+        val minutes = (time / 60_000).toInt()
+        val seconds = ((time / 1_000) % 60).toInt()
 
-    private fun tickStops(message: String) {
-        viewState.stopTracking(message)
+        val timeLeftFormatted = String
+            .format(Locale.getDefault(), "%02d:%02d:%02d", hours, minutes, seconds)
+
+        viewState.updateTimerText(timeLeftFormatted)
     }
 
 }
