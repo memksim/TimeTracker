@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/kmd02/Desktop/Pet/TimeTracker/app/src/main/res/drawable/circle_indicator.xml" value="0.1255" />
         <entry key="..\:/Users/kmd02/Desktop/Pet/TimeTracker/app/src/main/res/drawable/ic_baseline_pause_circle_filled_24.xml" value="0.1455" />
         <entry key="..\:/Users/kmd02/Desktop/Pet/TimeTracker/app/src/main/res/drawable/ic_baseline_play_circle_filled_24.xml" value="0.1455" />
         <entry key="..\:/Users/kmd02/Desktop/Pet/TimeTracker/app/src/main/res/drawable/ic_baseline_play_circle_outline_inactive.xml" value="0.1255" />

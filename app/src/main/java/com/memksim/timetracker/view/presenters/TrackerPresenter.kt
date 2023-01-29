@@ -29,6 +29,7 @@ class TrackerPresenter : MvpPresenter<TimerView>() {
         timeLeftInMillis = time
         memorableTime = timeLeftInMillis
         updateTimer(timeLeftInMillis)
+        viewState.setProgressMax(timeLeftInMillis.toInt())
     }
 
     fun startPauseTimer() {
@@ -45,14 +46,19 @@ class TrackerPresenter : MvpPresenter<TimerView>() {
         viewState.resetTimer()
         stopTimer()
         startTimer(fromMemory = true)
+        viewState.setProgressMax(memorableTime.toInt())
+        viewState.setProgress(timeLeftInMillis.toInt())
     }
 
     fun stopTimer() {
         timeLeftInMillis = 0
+        memorableTime = 0
         updateTimer(timeLeftInMillis)
         viewState.stopTimer()
         timer?.cancel()
         isTimerRunning = false
+        viewState.setProgressMax(memorableTime.toInt())
+        viewState.setProgress(timeLeftInMillis.toInt())
     }
 
     private fun pauseTimer() {
@@ -62,37 +68,28 @@ class TrackerPresenter : MvpPresenter<TimerView>() {
     }
 
     private fun startTimer(fromMemory: Boolean) {
-        timer = if(fromMemory.not()){
-            object : CountDownTimer(
-                timeLeftInMillis,
-                TICK_INTERVAL
-            ) {
-                override fun onTick(millisUntilFinished: Long) {
-                    timeLeftInMillis = millisUntilFinished
-                    updateTimer(timeLeftInMillis)
-                }
-
-                override fun onFinish() {
-                    isTimerRunning = false
-                    viewState.stopTimer()
-                }
-            }.start()
+        val inFuture = if(fromMemory.not()){
+            timeLeftInMillis
         }else{
-            object : CountDownTimer(
-                memorableTime,
-                TICK_INTERVAL
-            ) {
-                override fun onTick(millisUntilFinished: Long) {
-                    timeLeftInMillis = millisUntilFinished
-                    updateTimer(timeLeftInMillis)
-                }
-
-                override fun onFinish() {
-                    isTimerRunning = false
-                    viewState.stopTimer()
-                }
-            }.start()
+            memorableTime
         }
+
+        timer = object : CountDownTimer(
+            inFuture,
+            TICK_INTERVAL
+        ) {
+            override fun onTick(millisUntilFinished: Long) {
+                timeLeftInMillis = millisUntilFinished
+                updateTimer(timeLeftInMillis)
+                viewState.setProgress(timeLeftInMillis.toInt())
+            }
+
+            override fun onFinish() {
+                isTimerRunning = false
+                viewState.stopTimer()
+                timeLeftInMillis = 0
+            }
+        }.start()
 
         isTimerRunning = true
         viewState.startTimer(isTimerRunning = isTimerRunning)

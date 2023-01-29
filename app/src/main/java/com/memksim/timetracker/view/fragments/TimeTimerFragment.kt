@@ -32,7 +32,7 @@ class TimeTimerFragment : BaseFragment<FragmentTimeTrackerBinding>(
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         //trackerPresenter.initTimer(args.time)
-        trackerPresenter.initTimer(60_000L)
+        trackerPresenter.initTimer(600_000L)
         with(binding) {
             actionButtons.run {
                 playPauseTimer.setOnClickListener {
@@ -83,21 +83,6 @@ class TimeTimerFragment : BaseFragment<FragmentTimeTrackerBinding>(
         }
     }
 
-    private fun setPlayButtonActivated(isActive: Boolean) {
-        with(binding) {
-            actionButtons.playPauseTimer.background = ResourcesCompat
-                .getDrawable(
-                    resources,
-                    if (isActive) {
-                        R.drawable.play_button_background
-                    } else {
-                        R.drawable.inactive_play_button_background
-                    },
-                    null
-                )
-        }
-    }
-
     override fun updateTimerText(time: String) {
         binding.timeTracker.timeTv.text = time
     }
@@ -130,6 +115,15 @@ class TimeTimerFragment : BaseFragment<FragmentTimeTrackerBinding>(
             playPauseTimer.isClickable = false
             playPauseTimerInactivate.isVisible = true
         }
+    }
+
+    override fun setProgressMax(max: Int) {
+        binding.timeTracker.timerProgress.max = max
+        binding.timeTracker.timerProgress.progress = 0
+    }
+
+    override fun setProgress(progress: Int) {
+        binding.timeTracker.timerProgress.progress = progress
     }
 
 }

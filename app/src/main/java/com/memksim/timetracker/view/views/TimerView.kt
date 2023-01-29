@@ -10,4 +10,6 @@ interface TimerView: MvpView {
     fun resetTimer()
     fun setStartButtonActive()
     fun setStartButtonInactive()
+    fun setProgressMax(max: Int)
+    fun setProgress(progress: Int)
 }
