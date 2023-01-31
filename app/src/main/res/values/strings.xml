@@ -19,4 +19,5 @@
     <string name="hour_abbreviated_title">ч.</string>
     <string name="minutes_abbreviated_title">м.</string>
     <string name="seconds_abbreviated_title">с.</string>
+    <string name="select_time">Select time</string>
 </resources>

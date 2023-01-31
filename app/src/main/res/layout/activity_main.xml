@@ -5,4 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".base.MainActivity"
-    android:id="@+id/fragment_container_view"/>
+    android:id="@+id/fragment_container_view"
+    android:name="androidx.navigation.fragment.NavHostFragment"
+    app:defaultNavHost="true"
+    app:navGraph="@navigation/timer_nav_graph"/>

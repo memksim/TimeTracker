@@ -4,6 +4,16 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/appBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:navigationIcon="@drawable/ic_baseline_arrow_back_24"
+        app:title="@string/select_time" />
+
     <include
         android:id="@+id/selectedTime"
         layout="@layout/selected_time_layout"
@@ -42,5 +52,16 @@
             app:tint="@color/white"
             android:src="@drawable/ic_baseline_delete_24" />
     </androidx.cardview.widget.CardView>
+
+    <ImageView
+        android:id="@+id/play_pause_timer"
+        android:layout_width="@dimen/image_button_size"
+        android:layout_height="@dimen/image_button_size"
+        android:layout_marginStart="@dimen/spacing_24"
+        android:visibility="invisible"
+        android:src="@drawable/ic_baseline_play_circle_filled_24_green"
+        app:layout_constraintStart_toEndOf="@id/buttonDelete"
+        app:layout_constraintBottom_toBottomOf="@id/buttonDelete"
+        app:layout_constraintTop_toTopOf="@id/buttonDelete"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

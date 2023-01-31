@@ -7,6 +7,7 @@ import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.core.content.res.ResourcesCompat
 import androidx.core.view.isVisible
+import androidx.navigation.NavDirections
 import androidx.navigation.fragment.navArgs
 import com.arellomobile.mvp.presenter.InjectPresenter
 import com.arellomobile.mvp.presenter.ProvidePresenter
@@ -14,12 +15,13 @@ import com.memksim.timetracker.R
 import com.memksim.timetracker.base.BaseFragment
 import com.memksim.timetracker.databinding.FragmentTimeTrackerBinding
 import com.memksim.timetracker.view.presenters.TrackerPresenter
+import com.memksim.timetracker.view.views.NavigableView
 import com.memksim.timetracker.view.views.TimerView
 
-class TimeTimerFragment : BaseFragment<FragmentTimeTrackerBinding>(
+class TimeTrackerFragment : BaseFragment<FragmentTimeTrackerBinding>(
     R.layout.fragment_time_tracker,
     FragmentTimeTrackerBinding::bind
-), TimerView {
+), TimerView, NavigableView {
 
     @InjectPresenter
     lateinit var trackerPresenter: TrackerPresenter
@@ -27,12 +29,11 @@ class TimeTimerFragment : BaseFragment<FragmentTimeTrackerBinding>(
     @ProvidePresenter
     fun provideTrackerPresenter(): TrackerPresenter = TrackerPresenter()
 
-    val args: TimeTimerFragmentArgs by navArgs()
+    val args: TimeTrackerFragmentArgs by navArgs()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        //trackerPresenter.initTimer(args.time)
-        trackerPresenter.initTimer(600_000L)
+        trackerPresenter.initTimer(args.time)
         with(binding) {
             actionButtons.run {
                 playPauseTimer.setOnClickListener {
@@ -47,7 +48,15 @@ class TimeTimerFragment : BaseFragment<FragmentTimeTrackerBinding>(
                     trackerPresenter.resetTimer()
                 }
             }
+            timeTracker.timeTv.setOnClickListener {
+                trackerPresenter.navigateToSetTimeFragment()
+            }
         }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        trackerPresenter.initTimer(args.time)
     }
 
     private fun startPauseTracking(isTimerRunning: Boolean) {
@@ -103,17 +112,10 @@ class TimeTimerFragment : BaseFragment<FragmentTimeTrackerBinding>(
 
     }
 
-    override fun setStartButtonActive() {
+    override fun setStartButtonActive(isActivated: Boolean) {
         with(binding.actionButtons) {
-            playPauseTimer.isClickable = true
-            playPauseTimerInactivate.isVisible = false
-        }
-    }
-
-    override fun setStartButtonInactive() {
-        with(binding.actionButtons) {
-            playPauseTimer.isClickable = false
-            playPauseTimerInactivate.isVisible = true
+            playPauseTimer.isClickable = isActivated
+            playPauseTimerInactivate.isVisible = isActivated.not()
         }
     }
 
@@ -124,6 +126,12 @@ class TimeTimerFragment : BaseFragment<FragmentTimeTrackerBinding>(
 
     override fun setProgress(progress: Int) {
         binding.timeTracker.timerProgress.progress = progress
+    }
+
+    override fun navigate(args: Any?) {
+        val action = TimeTrackerFragmentDirections
+            .actionTimeTrackerFragmentToSetTimeFragment()
+        navigateTo(action = action)
     }
 
 }

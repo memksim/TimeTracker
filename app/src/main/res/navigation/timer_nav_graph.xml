@@ -1,25 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/timer_nav_graph"
     app:startDestination="@id/timeTrackerFragment">
 
     <fragment
         android:id="@+id/timeTrackerFragment"
-        android:name="com.memksim.timetracker.view.fragments.TimeTimerFragment"
-        android:label="TimeTrackerFragment" >
+        android:name="com.memksim.timetracker.view.fragments.TimeTrackerFragment"
+        android:label="TimeTrackerFragment"
+        tools:layout="@layout/time_tracker_layout">
         <action
             android:id="@+id/action_timeTrackerFragment_to_setTimeFragment"
             app:destination="@id/setTimeFragment" />
         <argument
             android:name="time"
             app:argType="long"
-            android:defaultValue="0L" />
+            android:defaultValue="0L"/>
     </fragment>
     <fragment
         android:id="@+id/setTimeFragment"
         android:name="com.memksim.timetracker.view.fragments.SetTimeFragment"
-        android:label="SetTimeFragment" >
+        android:label="SetTimeFragment"
+        tools:layout="@layout/fragment_set_time">
         <action
             android:id="@+id/action_setTimeFragment_to_timeTrackerFragment"
             app:destination="@id/timeTrackerFragment" />
